@@ -51,9 +51,12 @@ def counter4(player_num, syllables_num):
 
 def counter6(player_num, syllables_num):
     players = list(range(1, player_num+1))
+    print(players)
     result = []
     skip = syllables_num-1
     i = skip
+    if i > player_num:
+        i = i-player_num
     while len(result) < player_num:
         try:
             result.append(players.pop(i))
@@ -68,15 +71,17 @@ def josephus(ls, skip):
     players = list(range(1, ls+1))
     skip -= 1  # pop automatically skips the dead guy
     idx = skip
+    if idx > ls:
+        idx = idx-ls
     while len(players) > 1:
         players.pop(idx)  # kill prisoner at idx
         idx = (idx + skip) % len(players)
     print('survivor: ', players[0])
 
 
-counter6(42, 15)
+counter6(7, 11)
 print("----josephus:")
-josephus(42, 15)
+josephus(7, 11)
 
 
 
