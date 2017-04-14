@@ -51,7 +51,7 @@ def counter4(player_num, syllables_num):
 
 def counter6(player_num, syllables_num):
     players = list(range(1, player_num+1))
-    print(players)
+    print("players:", players)
     result = []
     skip = syllables_num-1
     i = skip
@@ -60,11 +60,10 @@ def counter6(player_num, syllables_num):
     while len(result) < player_num:
         try:
             result.append(players.pop(i))
-            print(result)
-            print(players)
             i = (i + skip) % len(players)
         except (ZeroDivisionError):
             break
+    print("result: ", result)
 
 
 def josephus(ls, skip):
